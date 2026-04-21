@@ -1,33 +1,40 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Be_Vietnam_Pro, Montserrat } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+/* FONT */
+const beVietnam = Be_Vietnam_Pro({
+  subsets: ["vietnamese"],
+  weight: ["400", "700"],
+  variable: "--font-body",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const montserrat = Montserrat({
   subsets: ["latin"],
+  weight: ["600", "800"],
+  variable: "--font-heading",
 });
 
-
+/* SEO */
 export const metadata: Metadata = {
-  title: "Học Tập Chiến Sĩ - Tiểu đoàn HLCSM2 Đại đội 7",
-  description: "Website hỗ trợ học tập, bài hát truyền thống và quân vũ dành cho chiến sĩ Tiểu đoàn HLCSM2 - Đại đội 7",
+  title: "🎖️ Học Tập Chiến Sĩ - Tiểu đoàn HLCSM2 Đại đội 7",
+  description:
+    "Website hỗ trợ học tập, bài hát truyền thống và quân vũ dành cho chiến sĩ Tiểu đoàn HLCSM2 - Đại đội 7",
 };
+
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      lang="vi"
+      className={`${beVietnam.variable} ${montserrat.variable}`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col font-body">
+        {children}
+      </body>
     </html>
   );
 }

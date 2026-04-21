@@ -46,13 +46,13 @@ const [openType, setOpenType] = useState<string | null>(null);
           <span>🔥</span>
           <span>🚀</span>
         </div>
-        🏅 TIỂU ĐOÀN HLCSM2
-        <div>ĐẠI ĐỘI 7</div>
+  <span className="text">TIỂU ĐOÀN HLCSM2</span>
+  <div className="text">ĐẠI ĐỘI 7</div>
       </div>
 
       <div className="container">
         <div className="column">
-          <h2>
+          <h2 className="section-title">
             <Music /> Bài Truyền Thống Sư Đoàn 375 và 15 bài hát quy định
           </h2>
          {songs.map((song, i) => (
@@ -74,8 +74,8 @@ const [openType, setOpenType] = useState<string | null>(null);
 ))}
         </div>
 
-        <div className="column">
-          <h2>
+        <div className="column ">
+          <h2 className="section-title">
             <Users /> 5 Điệu Quân Vũ
           </h2>
         {dances.map((dance, i) => (

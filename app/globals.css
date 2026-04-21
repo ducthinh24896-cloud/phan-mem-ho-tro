@@ -1,4 +1,10 @@
+/* =========================
+   1. RESET & BODY
+========================= */
 body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+
   background: linear-gradient(-45deg, #ff4d4d, #ff9900, #00cc66, #3399ff);
   background-size: 400% 400%;
   animation: gradientMove 10s ease infinite;
@@ -9,139 +15,161 @@ body {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
-/* tiêu đề */
-.title {
+
+:root {
+  --font-body: 'Be Vietnam Pro', sans-serif;
+  --font-heading: 'Montserrat', sans-serif;
+}
+
+body {
+  font-family: var(--font-body);
+}
+
+/* tiêu đề dùng font đẹp hơn */
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  letter-spacing: 1px;
+}
+
+/* =========================
+   2. HEADER (ĐƠN VỊ)
+========================= */
+.unit-header {
   text-align: center;
-  font-size: 36px;
-  padding: 20px;
-  animation: glow 2s infinite alternate;
+  font-weight: 900;
+  margin-top: 10px;
+  z-index: 2;
+  position: relative;
 }
 
-@keyframes glow {
-  from { text-shadow: 0 0 10px yellow; }
-  to { text-shadow: 0 0 25px red; }
+.unit-header .text {
+  font-family: var(--font-heading);
+  text-transform: uppercase;
+  font-size: 42px;
+  letter-spacing: 2px;
+
+  background: linear-gradient(90deg, #ffd700, #ff8c00, #ff4d4d);
+  background-size: 200%;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  animation: smoothColor 6s linear infinite;
 }
 
-/* layout */
+.unit-header div {
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+@keyframes smoothColor {
+  0% { background-position: 0%; }
+  100% { background-position: 200%; }
+}
+
+/* =========================
+   3. LAYOUT
+========================= */
 .container {
   display: flex;
   gap: 20px;
   padding: 20px;
+  position: relative;
+  z-index: 1;
 }
-/* MOBILE */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-  }
-}
+
 .column {
   flex: 1;
   min-width: 0;
-  background: rgba(0,0,0,0.3);
+  background: rgba(0, 0, 0, 0.3);
   padding: 15px;
   border-radius: 15px;
   box-shadow: 0 0 15px black;
 }
-/* item */
+
+/* =========================
+   4. SECTION TITLE
+========================= */
+.section-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  background: linear-gradient(90deg, #facc15, #f97316, #ef4444);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  text-shadow: 0 0 8px rgba(255, 200, 0, 0.4);
+}
+
+.section-title:hover {
+  transform: scale(1.05);
+  transition: 0.3s;
+}
+
+/* =========================
+   5. ITEM (DANH SÁCH)
+========================= */
 .item {
-   font-size: 16px;
+  font-size: 16px;
   padding: 10px;
   margin: 8px 0;
   border-radius: 10px;
   cursor: pointer;
-  background: rgba(255,255,255,0.2);
+
+  background: rgba(255, 255, 255, 0.2);
   transition: 0.3s;
 }
 
-/* MOBILE */
-@media (max-width: 768px) {
-  .item {
-    font-size: 14px;
-    padding: 8px;
-  }
-
-  h2 {
-    font-size: 16px;
-  }
-}
-
 .item:hover {
-  transform: scale(1.08);
-  background: orange;
+  transform: scale(1.08) rotate(2deg);
+  background: linear-gradient(45deg, orange, red);
+  box-shadow: 0 0 15px yellow;
 }
 
-/* video */
+.item:active {
+  transform: scale(0.95);
+}
+
+/* =========================
+   6. VIDEO
+========================= */
 .video {
   width: 100%;
   aspect-ratio: 16 / 9;
   margin-top: 10px;
   border-radius: 10px;
 }
-/*/* TÊN ĐƠN VỊ (ĐỨNG YÊN) */
-.unit-header {
-  text-align: center;
-  font-size: 28px;
-  font-weight: 900;
-  margin-top: 10px;
+
+/* =========================
+   7. FLOATING ICONS
+========================= */
+.floating-icons {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
 }
 
-/* MOBILE */
-@media (max-width: 768px) {
-  .unit-header {
-    font-size: 20px;
-  }
-
-  .unit-header div {
-    font-size: 16px;
-  }
-}
-
-/* CHỮ CHẠY MÀU */
-.rainbow-text {
-  text-align: center;
-  font-size: 36px;
-  font-weight: bold;
-
-  background: linear-gradient(
-    270deg,
-    red,
-    orange,
-    yellow,
-    lime,
-    cyan,
-    blue,
-    violet
-  );
-
-  background-size: 1400% 140%;
-  -webkit-background-clip: text;
-  color: transparent;
-
-  animation: rainbowMove 6s ease infinite;
-}
-
-/* animation đổi màu */
-@keyframes rainbowMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-/* ICON BAY */
 .floating-icons span {
   position: fixed;
+  top: 100%; /* bắt đầu dưới màn hình */
   font-size: 24px;
-  animation: floatUp 10s linear infinite;
   opacity: 0.8;
-   pointer-events: none; /* không chặn click */
-  z-index: 0;
+
+  animation: floatUp 8s linear infinite;
 }
 
-.container {
-  position: relative;
-  z-index: 1;
-}
-
-/* random vị trí */
+/* vị trí ngang */
 .floating-icons span:nth-child(1) { left: 10%; animation-delay: 0s; }
 .floating-icons span:nth-child(2) { left: 30%; animation-delay: 2s; }
 .floating-icons span:nth-child(3) { left: 50%; animation-delay: 4s; }
@@ -151,19 +179,48 @@ body {
 
 @keyframes floatUp {
   0% {
-    bottom: -50px;
-    transform: translateY(0) rotate(0deg);
+    transform: translateY(0);
   }
   100% {
-    bottom: 110%;
-    transform: translateY(-100vh) rotate(360deg);
+    transform: translateY(-120vh);
   }
 }
-.item:hover {
-  transform: scale(1.1) rotate(2deg);
-  background: linear-gradient(45deg, orange, red);
-  box-shadow: 0 0 15px yellow;
+
+/* =========================
+   8. RESPONSIVE
+========================= */
+
+/* TABLET */
+@media (max-width: 1024px) {
+  .unit-header .text {
+    font-size: 32px;
+  }
+
+  .column {
+    padding: 12px;
+  }
 }
-.item:active {
-  transform: scale(0.95);
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .unit-header .text {
+    font-size: 24px;
+  }
+
+  .unit-header div {
+    font-size: 16px;
+  }
+
+  .item {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .section-title {
+    font-size: 16px;
+  }
 }
