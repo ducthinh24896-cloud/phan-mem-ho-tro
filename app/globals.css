@@ -146,6 +146,157 @@ h1, h2, h3 {
   margin-top: 10px;
   border-radius: 10px;
 }
+.video-lyrics {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+/* mỗi cột */
+.video-box {
+  flex: 1;
+}
+
+.video-box iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+}
+
+/* lời */
+.lyrics-box {
+  flex: 1;
+}
+/* lời */
+.lyrics {
+  flex: 1;
+  background: rgba(0,0,0,0.5);
+  padding: 10px;
+  border-radius: 10px;
+  max-height: 250px;
+  overflow-y: auto;
+  font-size: 14px;
+  line-height: 1.6;
+}
+/* LỜI */
+.lyrics-box {
+  flex: 1;
+  background: rgba(0,0,0,0.5);
+  padding: 10px;
+  border-radius: 10px;
+
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+.lyrics-box h4 {
+  margin-bottom: 5px;
+}
+
+.lyrics-box pre {
+  white-space: pre-wrap;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* giữ xuống dòng */
+.lyrics pre {
+  white-space: pre-wrap;
+  margin: 0;
+}
+
+.lyrics-link {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 6px 10px;
+  border-radius: 8px;
+
+  background: linear-gradient(45deg, orange, red);
+  color: white;
+  text-decoration: none;
+  font-size: 13px;
+
+  transition: 0.3s;
+}
+
+.lyrics-link:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 10px yellow;
+}
+/* KHUNG LỜI */
+.lyrics-box {
+  flex: 1;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(0,0,0,0.5);
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+/* TITLE */
+.lyrics-title {
+  margin-bottom: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffd700;
+}
+
+/* DÒNG LỜI */
+.lyrics-line {
+  font-size: 18px;        /* 👈 chữ to hơn */
+  font-weight: 700;       /* 👈 in đậm */
+  margin: 6px 0;
+  line-height: 1.8;
+
+  /* gradient màu */
+  background: linear-gradient(
+    90deg,
+    #ff0000,
+    #ff7300,
+    #fffb00,
+    #00ff00,
+    #00ffff,
+    #0040ff,
+    #8f00ff
+  );
+
+  background-size: 300%;
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+text-shadow: 0 0 6px rgba(255, 255, 255, 0.3);
+  animation: lyricColorMove 6s linear infinite;
+}
+
+/* animation */
+@keyframes lyricColorMove {
+  0% { background-position: 0%; }
+  100% { background-position: 300%; }
+}
+
+/* hover nổi bật */
+.lyrics-line:hover {
+  transform: scale(1.05);
+  text-shadow: 0 0 10px yellow;
+}
+
+/* scrollbar đẹp */
+.lyrics-box::-webkit-scrollbar {
+  width: 6px;
+}
+.lyrics-box::-webkit-scrollbar-thumb {
+  background: orange;
+  border-radius: 10px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .video-lyrics {
+    flex-direction: column;
+  }
+}
 
 /* =========================
    7. FLOATING ICONS
@@ -167,6 +318,13 @@ h1, h2, h3 {
   opacity: 0.8;
 
   animation: floatUp 8s linear infinite;
+}
+
+.dance-video iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 10px;
+  margin-top: 10px;
 }
 
 /* vị trí ngang */
@@ -222,5 +380,10 @@ h1, h2, h3 {
 
   .section-title {
     font-size: 16px;
+  }
+}
+@media (max-width: 768px) {
+  .lyrics-line {
+    font-size: 14px;
   }
 }
